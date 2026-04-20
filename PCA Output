@@ -1,0 +1,102 @@
+
+=== PCA LOADINGS ===
+                                   PC1       PC2
+Overall Food Insecurity Rate  0.552491 -0.130556
+Child Food Insecurity Rate    0.468692  0.731431
+Cost Per Meal                -0.473909 -0.123527
+% FI > SNAP Threshold        -0.500492  0.657803
+
+=== EXPLAINED VARIANCE ===
+PC1: 0.6780
+PC2: 0.1581
+
+=== FIXED SCENARIO RESULTS (REFERENCE ONLY) ===
+         Scenario  PC1_weight  PC2_weight  Correlation_with_FI  Top10_Avg_FI
+0      Need_80_20         0.8         0.2             0.890847        0.1837
+1      Need_70_30         0.7         0.3             0.869923        0.1837
+2      Need_60_40         0.6         0.4             0.834245        0.1837
+3  Balanced_50_50         0.5         0.5             0.774146        0.1790
+4    Access_30_70         0.3         0.7             0.526230        0.1733
+
+=== FULL RATIO SENSITIVITY RESULTS ===
+    PC1_weight  PC2_weight Scenario  Correlation_with_FI  Top10_Avg_FI
+0          100           0    100/0             0.909855        0.1833
+1           90          10    90/10             0.902984        0.1847
+2           80          20    80/20             0.890847        0.1837
+3           70          30    70/30             0.869923        0.1837
+4           60          40    60/40             0.834245        0.1837
+5           50          50    50/50             0.774146        0.1790
+6           40          60    40/60             0.675902        0.1733
+7           30          70    30/70             0.526230        0.1733
+8           20          80    20/80             0.326043        0.1714
+9           10          90    10/90             0.102797        0.1687
+10           0         100    0/100            -0.103839        0.1657
+
+=== STRATEGIC RATIO SELECTED ===
+Using 70/30 (Need / System Gap)
+Reason: preserves need as primary, while surfacing hidden vulnerability.
+
+=== TOP 10 STATUS QUO COUNTIES (PC1 ONLY) ===
+                          County, State  Rank_StatusQuo  Overall Food Insecurity Rate  Child Food Insecurity Rate  % FI > SNAP Threshold
+7875     Robeson County, North Carolina             1.0                         0.204                       0.298                  0.153
+7895    Scotland County, North Carolina             2.0                         0.194                       0.359                  0.253
+7939  Washington County, North Carolina             3.0                         0.177                       0.338                  0.203
+7779      Lenoir County, North Carolina             4.0                         0.181                       0.329                  0.173
+7731     Halifax County, North Carolina             5.0                         0.176                       0.356                  0.237
+7935      Warren County, North Carolina             6.0                         0.173                       0.359                  0.233
+7575   Alleghany County, North Carolina             7.0                         0.180                       0.232                  0.118
+7871    Richmond County, North Carolina             8.0                         0.182                       0.311                  0.258
+7887  Rutherford County, North Carolina             9.0                         0.184                       0.241                  0.187
+7911       Swain County, North Carolina            10.0                         0.182                       0.232                  0.135
+
+=== TOP MOVERS: HIDDEN VULNERABILITY COUNTIES ===
+These counties rise in priority when we account for the System Gap (PC2).
+                           County, State  Rank_StatusQuo  Rank_Strategic  Priority_Jump  Child Food Insecurity Rate  % FI > SNAP Threshold  Cost Per Meal
+7827  Northampton County, North Carolina            41.0            20.0           21.0                       0.327                  0.326           3.71
+7747     Hertford County, North Carolina            32.0            14.0           18.0                       0.344                  0.349           3.69
+7919      Tyrrell County, North Carolina            57.0            42.0           15.0                       0.266                  0.413           3.87
+7855       Person County, North Carolina            50.0            37.0           13.0                       0.261                  0.355           3.80
+7647       Chowan County, North Carolina            33.0            21.0           12.0                       0.300                  0.302           3.87
+7595       Bertie County, North Carolina            23.0            13.0           10.0                       0.332                  0.310           3.69
+7667   Cumberland County, North Carolina            43.0            33.0           10.0                       0.284                  0.295           4.01
+7631      Caswell County, North Carolina            61.0            51.0           10.0                       0.253                  0.414           3.77
+7723       Greene County, North Carolina            31.0            22.0            9.0                       0.291                  0.287           3.88
+7751         Hoke County, North Carolina            52.0            44.0            8.0                       0.244                  0.333           3.83
+
+=== COUNTIES THAT FALL MOST ===
+These counties are strong on overall need but less driven by the System Gap.
+                          County, State  Rank_StatusQuo  Rank_Strategic  ...  Overall Food Insecurity Rate  Child Food Insecurity Rate  % FI > SNAP Threshold        
+7715      Graham County, North Carolina            20.0            41.0  ...                         0.168                       0.172                  0.102        
+7963      Yancey County, North Carolina            46.0            60.0  ...                         0.167                       0.198                  0.182        
+7911       Swain County, North Carolina            10.0            23.0  ...                         0.182                       0.232                  0.135        
+7619    Caldwell County, North Carolina            25.0            36.0  ...                         0.160                       0.201                  0.158        
+7575   Alleghany County, North Carolina             7.0            17.0  ...                         0.180                       0.232                  0.118        
+7951      Wilkes County, North Carolina            17.0            27.0  ...                         0.175                       0.230                  0.159        
+7907       Surry County, North Carolina            21.0            31.0  ...                         0.179                       0.207                  0.214        
+7791       Macon County, North Carolina            35.0            45.0  ...                         0.167                       0.190                  0.207        
+7887  Rutherford County, North Carolina             9.0            18.0  ...                         0.184                       0.241                  0.187        
+7943     Watauga County, North Carolina            75.0            84.0  ...                         0.153                       0.130                  0.157        
+
+=== RANK SHIFT SUMMARY VS STATUS QUO (PC1 ONLY) ===
+  Scenario  Total_Rank_Shift  Max_Individual_Shift
+0    90/10               158                     9
+1    80/20               300                    16
+2    70/30               492                    21
+3    60/40               726                    34
+
+Files saved:
+- county_results_full.csv
+- scenario_summary_fixed.csv
+- ratio_sensitivity_results.csv
+- top_need_counties_pc1_only.csv
+- top_movers_hidden_vulnerability.csv
+- counties_falling.csv
+- rank_shift_summary.csv
+
+=== INTERPRETATION GUIDE ===
+PC1 = overall need factor
+PC2 = system gap / vulnerability factor
+Status quo ranking = PC1 only
+Strategic ranking = Blend of PC1 and PC2
+Priority_Jump > 0 means the county becomes more important when access gaps are considered.
+Use the MOVERS table for your slide, not just the top poverty counties.
